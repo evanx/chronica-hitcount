@@ -11,5 +11,5 @@ if [ $# -gt 0 ]
 then
   c1commit "$*"
 else
-  c1commit "scripts"
+  c1commit "update"
 fi 
