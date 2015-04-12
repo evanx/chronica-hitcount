@@ -32,7 +32,7 @@ npm install
 bash scripts/run.sh
 ```
 
-You may need to ensure that Cairo graphics library is installed, for the <a href="https://github.com/Automattic/node-canvas">node-canvas</a> dependency.
+You may need to `apt-get install` various devel libraries for the <a href="https://github.com/Automattic/node-canvas">node-canvas</a> dependency, e.g. Cairo, pango, libjpeg.
 
 
 ### Run script
