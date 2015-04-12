@@ -9,7 +9,7 @@ Minimal analytics service in Node.js, using Redis for storage.
 On the client, JavaScript is used to HTTP GET e.g. the following URL of the analytics server.
 
 ```
-http://analytics.server.com/c/thesite.com/123456/article
+http://analytics.server.com/hc/thesite.com/123456/article
 ```
 
 where `analytics.server.com` is your analytics server running this app, and `thesite.com` is the host the client is hitting.
@@ -19,28 +19,29 @@ In the above example, `123456` is the page ID, and `article` is the page categor
 The service returns a 1x1 transparent GIF image, so that can be used as follows.
 
 ```html
-<img src="http://analytics.server.com/c/thesite.com/123456/article"/>
+<img src="http://analytics.server.com/hc/thesite.com/123456/article"/>
 ```
 
 
-### Installing and running
+### Installing
 
 ```shell
 git clone https://github.com/evanx/chronica-hitcount.git
 cd chronica-hitcount
 npm install
-bash scripts/run.sh
+bash scripts/test.sh
 ```
 
 You may need to `apt-get install` various devel libraries for the <a href="https://github.com/Automattic/node-canvas">node-canvas</a> dependency, e.g. Cairo, pango, libjpeg.
 
 
-### Run script
+### Test script
 
-The `run.sh` script sets the configuration environment variables, and runs the `entry-hitcount.js` entry point.
+The `test.sh` script sets the configuration environment variables, and runs the `entry-hitcount.js` entry point.
 
 ```shell
 export APP_PORT=8080
+export APP_LOCATION=/hc/
 export MONITOR_INTERVAL_SECONDS=120
 export REDIS_HOST=127.0.0.1
 export REDIS_PORT=6379
@@ -59,7 +60,7 @@ require('./server');
 
 For example, open the following in your browser
 ```
-http://localhost:8080/c/thesite.com/123456/article
+http://localhost:8080/hc/thesite.com/123456/article
 ```
 where the `thesite.com` is the domain, `123456` is the page ID, and `article` is the page categorisation.
 
