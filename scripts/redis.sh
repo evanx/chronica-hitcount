@@ -21,7 +21,6 @@ then
   command=$1
   shift
   c$#$command $@
-else 
+else
   c0print
 fi
-
