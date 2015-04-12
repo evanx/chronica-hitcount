@@ -21,7 +21,7 @@ The service returns an empty HTTP 200 response.
 ### Installing and running
 
 ```shell
-git clone https://github.com/evanx/certserver.git
+git clone https://github.com/evanx/chronica-hitcount.git
 cd chronica-hitcount
 npm install
 bash scripts/run.sh
