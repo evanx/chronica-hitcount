@@ -40,7 +40,14 @@ export REDIS_PORT=6379
 nodejs lib/entry-hitcount.js | ./node_modules/bunyan/bin/bunyan
 ```
 
-The `entry-hitcount.js` registers `babel` to support ES6, and then runs <a href="https://github.com/evanx/chronica-hitcount/blob/master/lib/server.js">server.js</a>
+Incidently `entry-hitcount.js` registers `babel` to support ES6, and then runs <a href="https://github.com/evanx/chronica-hitcount/blob/master/lib/server.js">server.js</a>
+
+```javascript
+require('babel/register');
+require('./server');
+```
+
+### Testing
 
 For example, open the following in your browser
 ```
