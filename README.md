@@ -7,10 +7,18 @@ Simple analytics service in Node.js, using Redis for storage.
 http://localhost:8080/c/thesite.com/1234567/article
 ```
 
-### `scripts/run.sh`
+### Installing and running
 
 ```shell
-~/chronica-hitcount$ cat scripts/run.sh
+git clone https://github.com/evanx/certserver.git
+cd chronica-hitcount
+npm install
+bash scripts/run.sh
+```
+
+### Run script
+
+```shell
 #!/bin/bash
 
 # enviroment
