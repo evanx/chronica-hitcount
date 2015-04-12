@@ -9,17 +9,15 @@ Minimal analytics service in Node.js, using Redis for storage.
 On the client, JavaScript is used to HTTP GET e.g. the following URL of the analytics server.
 
 ```
-http://analytics.server.com/hc/thesite.com/123456/article
+http://analytics.server.com/hc/thesite.com/123456
 ```
 
-where `analytics.server.com` is your analytics server running this app, and `thesite.com` is the host the client is hitting.
-
-In the above example, `123456` is the page ID, and `article` is the page categorisation.
+where `analytics.server.com` is your analytics server running this app, `thesite.com` is the host the client is hitting, and `123456` is the page ID.
 
 The service returns a 1x1 transparent GIF image, so that can be used as follows.
 
 ```html
-<img src="http://analytics.server.com/hc/thesite.com/123456/article"/>
+<img src="http://analytics.server.com/hc/thesite.com/123456"/>
 ```
 
 
@@ -60,9 +58,9 @@ require('./server');
 
 For example, open the following in your browser
 ```
-http://localhost:8080/hc/thesite.com/123456/article
+http://localhost:8080/hc/thesite.com/123456
 ```
-where the `thesite.com` is the domain, `123456` is the page ID, and `article` is the page categorisation.
+where the `thesite.com` is the host, and `123456` is the page ID.
 
 
 ### Redis
@@ -71,12 +69,14 @@ You can use the `redis.sh` script to see the Redis entries created by the app as
 ```shell
 $ sh scripts/redis.sh
 
-redis-cli hgetall hitcount:thesite.com:article
+redis-cli hgetall hitcount:thesite.com
 1) "123456"
 2) "15"
 
-redis-cli hgetall hitcount:thesite.com:article:15:4:12:18
+redis-cli hgetall hitcount:thesite.com:15:4:12:18
 1) "123456"
 2) "3"
 ```
 where the all-time count is 15, and 3 for the hour starting 2015-04-12 18h00.
+
+<img src="http://analytics.server.com/hc/github.com/hitcount"/>
