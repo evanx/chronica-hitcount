@@ -1,7 +1,11 @@
 
 ## chronica-hitcount
 
-Simple analytics service in Node.js, using Redis for storage.
+Minimal analytics service in Node.js, using Redis for storage.
+
+### Client
+
+On the client,
 
 ```
 http://localhost:8080/c/thesite.com/1234567/article
@@ -30,3 +34,19 @@ nodejs lib/entry-hitcount.js | ./node_modules/bunyan/bin/bunyan
 ```
 
 The `entry-hitcount.js` registers `babel` to support ES6, and then runs <a href="https://github.com/evanx/chronica-hitcount/blob/master/lib/server.js">server.js</a>
+
+For example, open the following in your browser
+```
+http://localhost:8080/c/thesite.com/1234567/article
+```
+where the `thesite.com` is the domain, `1234567` is the page ID, and `article` is the page categorisation.
+
+### Redis
+
+You can use the `redis.sh` script to see the Redis entries created by the app as follows.
+```shell
+$ sh scripts/redis.sh
+redis-cli hgetall hitcount:thesite.com:article:15:4:12:18
+1) "1234567"
+2) "1"
+```
