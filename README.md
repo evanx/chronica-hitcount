@@ -3,6 +3,7 @@
 
 Minimal analytics service in Node.js, using Redis for storage.
 
+
 ### Client
 
 On the client, JavaScript is used to HTTP GET e.g. the following URL of the analytics server.
@@ -15,7 +16,11 @@ where `analytics.server.com` is your analytics server running this app, and `the
 
 In the above example, `123456` is the page ID, and `article` is the page categorisation.
 
-The service returns an empty HTTP 200 response.
+The service returns a 1x1 transparent GIF image, so that can be used as follows.
+
+```html
+<img src="http://analytics.server.com/c/thesite.com/123456/article"/>
+```
 
 
 ### Installing and running
@@ -26,6 +31,9 @@ cd chronica-hitcount
 npm install
 bash scripts/run.sh
 ```
+
+You may need to ensure that Cairo graphics library is installed, for the <a href="https://github.com/Automattic/node-canvas">node-canvas</a> dependency.
+
 
 ### Run script
 
@@ -54,6 +62,7 @@ For example, open the following in your browser
 http://localhost:8080/c/thesite.com/123456/article
 ```
 where the `thesite.com` is the domain, `123456` is the page ID, and `article` is the page categorisation.
+
 
 ### Redis
 
