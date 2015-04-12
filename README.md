@@ -5,11 +5,18 @@ Minimal analytics service in Node.js, using Redis for storage.
 
 ### Client
 
-On the client,
+On the client, JavaScript is used to HTTP GET e.g. the following URL of the analytics server.
 
 ```
-http://localhost:8080/c/thesite.com/1234567/article
+http://analytics.server.com/c/thesite.com/1234567/article
 ```
+
+where `analytics.server.com` is the host of your analytics server running this app, and `thesite.com` is the host the client is hitting.
+
+In the above example, `1234567` is the page ID, and `article` is the page categorisation.
+
+The service returns an empty HTTP 200 response.
+
 
 ### Installing and running
 
