@@ -11,7 +11,7 @@ On the client, JavaScript is used to HTTP GET e.g. the following URL of the anal
 http://analytics.server.com/c/thesite.com/1234567/article
 ```
 
-where `analytics.server.com` is the host of your analytics server running this app, and `thesite.com` is the host the client is hitting.
+where `analytics.server.com` is your analytics server running this app, and `thesite.com` is the host the client is hitting.
 
 In the above example, `1234567` is the page ID, and `article` is the page categorisation.
 
