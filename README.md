@@ -69,4 +69,4 @@ redis-cli hgetall hitcount:thesite.com:article:15:4:12:18
 1) "123456"
 2) "3"
 ```
-where the all-time count is `15` for the article `123456`, and `3` for the time period "2014-04-12 18:00 - 19:00."
+where the all-time count is 15, and 3 for the time period 18:00 to 19:00 exclusive, on 2015-04-15.
