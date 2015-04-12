@@ -8,12 +8,12 @@ Minimal analytics service in Node.js, using Redis for storage.
 On the client, JavaScript is used to HTTP GET e.g. the following URL of the analytics server.
 
 ```
-http://analytics.server.com/c/thesite.com/1234567/article
+http://analytics.server.com/c/thesite.com/123456/article
 ```
 
 where `analytics.server.com` is your analytics server running this app, and `thesite.com` is the host the client is hitting.
 
-In the above example, `1234567` is the page ID, and `article` is the page categorisation.
+In the above example, `123456` is the page ID, and `article` is the page categorisation.
 
 The service returns an empty HTTP 200 response.
 
@@ -51,16 +51,22 @@ require('./server');
 
 For example, open the following in your browser
 ```
-http://localhost:8080/c/thesite.com/1234567/article
+http://localhost:8080/c/thesite.com/123456/article
 ```
-where the `thesite.com` is the domain, `1234567` is the page ID, and `article` is the page categorisation.
+where the `thesite.com` is the domain, `123456` is the page ID, and `article` is the page categorisation.
 
 ### Redis
 
 You can use the `redis.sh` script to see the Redis entries created by the app as follows.
 ```shell
 $ sh scripts/redis.sh
+
+redis-cli hgetall hitcount:thesite.com:article
+1) "123456"
+2) "15"
+
 redis-cli hgetall hitcount:thesite.com:article:15:4:12:18
-1) "1234567"
-2) "1"
+1) "123456"
+2) "3"
 ```
+where the all-time count is `15` for the article `123456`, and `3` for the time period "2014-04-12 18:00 - 19:00."
