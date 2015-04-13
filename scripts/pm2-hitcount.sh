@@ -17,9 +17,12 @@ c0tailf() {
   tail -f | ./node_modules/bunyan/bin/bunyan
 }
 
-if [ $# -eq 1 ]
+if [ $1 = 'start' ]
 then
-  c0$1
+  c0start
+elif [ $# -eq 1 ]
+then
+  pm2 $1 hitcount
 else
   pm2 l 
   pm2 show hitcount
