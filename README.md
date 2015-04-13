@@ -79,4 +79,4 @@ redis-cli hgetall hitcount:thesite.com:15:4:12:18
 ```
 where the all-time count is 15, and 3 for the hour starting 2015-04-12 18h00.
 
-<img src="http://hc.richie.ngena.com/hc/github.com/hitcount"/>
+<!--img src="http://hc.richie.ngena.com/hc/github.com/hitcount"/-->
